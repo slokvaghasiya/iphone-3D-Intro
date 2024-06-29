@@ -38,7 +38,7 @@ const Hero = () => {
           </video>
         </div>
       </div>
-      <div id="cta" className="flex flex-col items-center opacity-0 translate-y-20">
+      <div id="cta" className="flex flex-col items-center !important translate-y-20" style={{ opacity: 0 }} >
         <a href="#highlights" className="btn" >Buy</a>
         <p className="font-normal text-xl">From $199/month or $999</p>
       </div>
