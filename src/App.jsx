@@ -3,6 +3,7 @@ import Hero from "./components/Hero";
 import Highlight from "./components/Highlight";
 import Model from "./components/Model";
 
+
 const App = () => {
 
   return (
@@ -15,4 +16,4 @@ const App = () => {
   )
 }
 
-export default App
+export default Sentry.withProfiler(App)

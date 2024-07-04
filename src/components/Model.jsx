@@ -1,12 +1,13 @@
 import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import ModelView from './ModelView'
 import { yellowImg } from "../utils";
 import * as THREE from "three";
 import { Canvas } from '@react-three/fiber';
 import { View } from '@react-three/drei';
 import { models, sizes } from "../constants";
+import { animationWithGsapTimeLine } from '../utils/animation';
 
 const Model = () => {
 
@@ -24,8 +25,25 @@ const Model = () => {
     const large = useRef(new THREE.Group())
 
 
-    const [smallRotaion, setSmallRotaion] = useState(0)
-    const [largeRotaion, setLargeRotaion] = useState(0)
+    const [smallRotation, setSmallRotation] = useState(0)
+    const [largeRotation, setLargeRotation] = useState(0)
+
+    const tl = gsap.timeline();
+
+    useEffect(() => {
+        if (size === 'large') {
+            animationWithGsapTimeLine(tl, small, smallRotation, "#view1", "#view2", {
+                transform: "translateX(-100%)",
+                duration: 2
+            })
+        }
+        if (size === 'small') {
+            animationWithGsapTimeLine(tl, large, largeRotation, "#view1", "#view2", {
+                transform: "translateX(0)",
+                duration: 2
+            })
+        }
+    }, [size])
 
     useGSAP(() => {
         gsap.to("#heading", {
@@ -46,7 +64,7 @@ const Model = () => {
                             groupRef={small}
                             gsapType="view1"
                             controlRef={cameraControllSmall}
-                            setRotationState={setSmallRotaion}
+                            setRotationState={setSmallRotation}
                             item={Model}
                             size={size}
                         />
@@ -55,7 +73,7 @@ const Model = () => {
                             groupRef={large}
                             gsapType="view2"
                             controlRef={cameraControllLarge}
-                            setRotationState={setLargeRotaion}
+                            setRotationState={setLargeRotation}
                             item={Model}
                             size={size}
                         />
