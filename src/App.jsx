@@ -1,24 +1,18 @@
-import Navbar from "./components/Navbar";
-import Hero from "./components/Hero";
-import Highlight from "./components/Highlight";
-import Model from "./components/Model";
-import Features from "./components/Features";
-import HowItWorks from "./components/HowItWorks";
-import Footer from "./components/Footer";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Index from "./components/Index";
 
 
 const App = () => {
 
   return (
-    <main className="bg-black" >
-      <Navbar />
-      <Hero />
-      <Highlight />
-      <Model />
-      <Features />
-      <HowItWorks />
-      <Footer />
-    </main>
+    <Router>
+      <div className='App'>
+        <Routes>
+          <Route exact path='/iphone-3D-Intro' element={<Index />} />
+        </Routes>
+
+      </div>
+    </Router>
   )
 }
 
