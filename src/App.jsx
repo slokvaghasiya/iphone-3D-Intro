@@ -5,14 +5,13 @@ import Index from "./components/Index";
 const App = () => {
 
   return (
-    <Router>
-      <div className='App'>
+    <div className='App'>
+      <Router>
         <Routes>
           <Route exact path='/iphone-3D-Intro' element={<Index />} />
         </Routes>
-
-      </div>
-    </Router>
+      </Router>
+    </div>
   )
 }
 

@@ -8,7 +8,7 @@ import Footer from "./Footer";
 
 const Index = () => {
   return (
-    <main className="bg-black" >
+    <div className="bg-black" >
       <Navbar />
       <Hero />
       <Highlight />
@@ -16,7 +16,7 @@ const Index = () => {
       <Features />
       <HowItWorks />
       <Footer />
-    </main>
+    </div>
   )
 }
 
